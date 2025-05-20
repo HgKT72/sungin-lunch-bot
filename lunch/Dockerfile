@@ -11,4 +11,3 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /home/gradle/project/build/libs/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
-g
