@@ -1,4 +1,11 @@
-FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-COPY build/libs/lunch-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+# 1단계: 빌드용 이미지
+FROM gradle:8.5-jdk21 AS build
+COPY --chown=gradle:gradle . /home/gradle/project
+WORKDIR /home/gradle/project
+RUN gradle build --no-daemon
+
+# 2단계: 실행용 이미지
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+COPY --from=build /home/gradle/project/build/libs/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
