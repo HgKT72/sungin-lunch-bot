@@ -57,7 +57,7 @@ public class MealService {
         for(int i=0; i<rows.size()&& i<MEAL_TYPES.length; i++){
             Elements tds=rows.get(i).select("td");
 
-            for(int j=0; j<tds.size()&& j< MEAL_TYPES.length; j++){
+            for(int j=0; j<tds.size()&& j< dates.size(); j++){
                 Element td=tds.get(j);
                 String date=dates.get(j);
                 MealType type = parseType(MEAL_TYPES[i]);
