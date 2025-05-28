@@ -54,21 +54,21 @@ public class MealService {
 
         Elements rows = doc.select("table tbody tr");
 
-        for(int i=0; i<rows.size()&& i<MEAL_TYPES.length; i++){
+        for(int i=0; i<rows.size()&& i<MEAL_TYPES.length; i++){//i: 조식/중식/석식 중 어떤 식사 타입인지(행 단위 row)
             Elements tds=rows.get(i).select("td");
 
-            for(int j=0; j<tds.size()&& j< dates.size(); j++){
+            for(int j=0; j<tds.size()&& j< dates.size(); j++){//j: 요일에 해당하는 날의 메뉴
                 Element td=tds.get(j);
                 String date=dates.get(j);
                 MealType type = parseType(MEAL_TYPES[i]);
                 String key=date+"-"+type;//2025-05-24-중식
 
                 String kcal = td.select(".fm_tit_p").text();
-                Element lastP = td.select("p").last();
+                Element lastP = td.select("p").last();//<td> 내부의 마지막 <p> 태그를 선택 (메뉴 줄이 <br>로 구분되어 있음)
 
                 List<String> menuList=new ArrayList<>();
                 if(lastP!=null){
-                    String[] menuItems=lastP.html().split("<br>");
+                    String[] menuItems=lastP.html().split("<br>");//<br>태그 기준으로 분할
                     for(String item: menuItems){
                         String cleaned=Jsoup.parse(item).text().trim();
                         if(!cleaned.isEmpty()){
