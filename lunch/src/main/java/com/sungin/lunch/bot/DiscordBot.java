@@ -1,3 +1,4 @@
+/*
 package com.sungin.lunch.bot;
 
 import jakarta.annotation.PostConstruct;
@@ -22,7 +23,8 @@ public class DiscordBot {
     public void startBot() {
         JDABuilder.createDefault(token)
                 .addEventListeners(listener)
-                .setActivity(Activity.playing("급식 메뉴 확인중 😋"))
+                .setActivity(Activity.playing("급식 메뉴 확인 😋"))
                 .build();
     }
 }
+*/

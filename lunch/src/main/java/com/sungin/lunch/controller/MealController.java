@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/api/meal")
 public class MealController {
@@ -27,9 +29,9 @@ public class MealController {
             @PathVariable MealType type){
 
         MealInfo meal=mealService.getMeal(date,type);
-
         System.out.println("요청 날짜: " + date + ", 타입: " + type);
         System.out.println("응답 데이터: " + meal);
+
 
 
         if(meal==null)return ResponseEntity.notFound().build();
@@ -39,12 +41,12 @@ public class MealController {
     }
 
     //수동 디버그
-/*
+
     @GetMapping("/update")
     public String update() throws IOException {
         mealService.updateMeals();
         return "업데이트 완료";
     }
-*/
+
 
 }

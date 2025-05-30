@@ -22,12 +22,12 @@ public class LunchBot {
 
 
 //JDA 인스턴스 중복 실행 오류 디스코드에서 디도스 공격으로 감지
-/*    @PostConstruct
+    @PostConstruct
     public void startBot() throws Exception {
         JDABuilder.createDefault(token,
                         EnumSet.of(GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT)) // 여기에 추가
-                .setActivity(Activity.playing("급식 불러오는 중"))
+                .setActivity(Activity.playing("선진학교 해킹"))
                 .addEventListeners(listener)
                 .build();
-    }*/
+    }
 }

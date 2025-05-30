@@ -25,10 +25,10 @@ public class LunchApplication {
 		SpringApplication.run(LunchApplication.class, args);
 	}
 
-	@PostConstruct
+/*	@PostConstruct
 	public void startBot() throws Exception {
 		JDABuilder.createDefault(token)
 				.addEventListeners(listener)
 				.build();
-	}
+	}*/
 }
