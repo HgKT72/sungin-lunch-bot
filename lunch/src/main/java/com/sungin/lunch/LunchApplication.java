@@ -22,6 +22,7 @@ public class LunchApplication {
 	}
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(LunchApplication.class, args);
 	}
 

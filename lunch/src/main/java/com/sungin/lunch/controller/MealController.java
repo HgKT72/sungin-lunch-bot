@@ -16,8 +16,9 @@ import java.io.IOException;
 @RequestMapping("/api/meal")
 public class MealController {
 
-    private MealService mealService;
+    private MealService mealService;//Service 계층 주입
 
+    //생성자 주입
     public MealController(MealService mealService) {
         this.mealService = mealService;
     }
