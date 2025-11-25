@@ -37,7 +37,7 @@ public class MealService {
     }
 
 
-    @Scheduled(cron= "0 0 6 ? * MON")
+    @Scheduled(cron = "0 0 0 * * *")
     public void updateMeals() throws IOException{
 
         Document doc = Jsoup.connect("https://hangukseonjin-s.goeas.kr/hangukseonjin-s/ad/fm/foodmenu/selectFoodMenuView.do?mi=9822").get();
