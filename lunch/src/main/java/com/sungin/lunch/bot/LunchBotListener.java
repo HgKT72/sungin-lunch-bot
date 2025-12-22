@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Component
 public class LunchBotListener extends ListenerAdapter {
@@ -22,7 +24,9 @@ public class LunchBotListener extends ListenerAdapter {
         String content = event.getMessage().getContentRaw();
 
         if (content.equals("!급식")) {
-            String today = LocalDate.now().toString();
+            //String today = LocalDate.now().toString();
+            String today = LocalDate.now(ZoneId.of("Asia/Seoul")).toString();
+
             MealInfo meal = mealService.getMeal(today, MealType.LUNCH);
 
             if (meal.getMenu().isEmpty()) {
