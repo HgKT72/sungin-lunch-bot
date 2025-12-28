@@ -23,7 +23,7 @@ public class BotConfig {
                         token,
                         EnumSet.of(GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT)
                 )
-                .setActivity(Activity.playing("급식 메뉴 확인하기😋 -> !급식"))
+                .setActivity(Activity.playing("급식 메뉴 | !도움말"))
                 .addEventListeners(listener)
                 .build();
     }

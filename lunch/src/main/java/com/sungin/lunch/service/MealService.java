@@ -92,6 +92,10 @@ public class MealService {
         return mealMap.get(date+"-"+type);
     }
 
+
+
+
+
     public List<MealInfo> getWeekMeals(String datePrefix){
         List<MealInfo> result=new ArrayList<>();
         for(String key: mealMap.keySet()){
