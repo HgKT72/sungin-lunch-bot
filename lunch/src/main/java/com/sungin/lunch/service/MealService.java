@@ -34,6 +34,8 @@ public class MealService {
     @PostConstruct
     public void init() throws IOException {
         updateMeals();
+
+
     }
 
 

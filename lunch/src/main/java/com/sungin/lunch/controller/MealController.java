@@ -29,16 +29,14 @@ public class MealController {
             @PathVariable MealType type){
 
         MealInfo meal=mealService.getMeal(date,type);
-        System.out.println("요청 날짜: " + date + ", 타입: " + type);
-        System.out.println("응답 데이터: " + meal);
-
-
+        //System.out.println("요청 날짜: " + date + ", 타입: " + type);
+        //System.out.println("응답 데이터: " + meal);
 
         if(meal==null)return ResponseEntity.notFound().build();
         return ResponseEntity.ok(meal);
-
-
     }
+
+
 
     //수동 디버그
 
